@@ -11,6 +11,9 @@ Animations: Implemented using Flutter's animation framework for smooth and respo
 
 
 
+## App Sample 
+https://github.com/user-attachments/assets/c183fe98-df54-4387-adb0-bbb595661c78
+
 
 
 
