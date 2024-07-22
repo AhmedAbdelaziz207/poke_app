@@ -1,20 +1,18 @@
-# poke_app
+# Pokémon App
+The Pokémon App is a project designed to practice and demonstrate the integration of APIs and animations within a mobile application. This app fetches data from a Pokémon API to display detailed information about various Pokémon characters, while also incorporating smooth animations to enhance the user experience.
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-
-https://github.com/user-attachments/assets/b3e27eee-e66b-492a-b562-26f0c2db6235
+## Technologies Used
+Frontend: Flutter for building a cross-platform mobile application.
+API: Integration with the Pokémon API for data retrieval.
+State Management: Utilizes Provider for efficient state management.
+Animations: Implemented using Flutter's animation framework for smooth and responsive visual effects.
 
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
+
+
+
