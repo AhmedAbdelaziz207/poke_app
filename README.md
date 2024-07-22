@@ -6,7 +6,7 @@ Frontend: Flutter for building a cross-platform mobile application.
 
 API: Integration with the Pokémon API for data retrieval.
 
-State Management: Utilizes Provider for efficient state management.
+State Management: Utilizes Bloc for efficient state management.
 
 Animations: Implemented using Flutter's animation framework for smooth and responsive visual effects.
 
