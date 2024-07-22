@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:poke_app/features/home/cubit/home_cubit.dart';
-
-import 'features/home/ui/home_screen.dart';
+import 'features/pokemon/cubit/pokemon_cubit.dart';
+import 'features/pokemon/ui/home_screen.dart';
 
 
 void main() {
@@ -16,8 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       home: BlocProvider(
-        create: (context) => HomeCubit()..loadCharacters() ,
-        child: const HomeScreen(),
+        create: (context) => PokemonCubit()..loadCharacters() ,
+        child: const PokemonScreen(),
       ),
     );
   }

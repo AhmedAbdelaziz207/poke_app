@@ -1,7 +1,7 @@
 
 class Pokemon {
   int? id;
-  String? num;
+  String? number;
   String? name;
   String? img;
   List<String>? type;
@@ -10,8 +10,8 @@ class Pokemon {
   String? candy;
   int? candyCount;
   String? egg;
-  double? spawnChance;
-  double? avgSpawns;
+  num? spawnChance;
+  num? avgSpawns;
   String? spawnTime;
   List<double>? multipliers;
   List<String>? weaknesses;
@@ -19,7 +19,7 @@ class Pokemon {
 
   Pokemon(
       {this.id,
-        this.num,
+        this.number,
         this.name,
         this.img,
         this.type,
@@ -38,7 +38,7 @@ class Pokemon {
 
   Pokemon.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    num = json['num'];
+    number = json['num'];
     name = json['name'];
     img = json['img'];
     type = json['type'].cast<String>();
@@ -50,8 +50,16 @@ class Pokemon {
     spawnChance = json['spawn_chance'];
     avgSpawns = json['avg_spawns'];
     spawnTime = json['spawn_time'];
-    multipliers = json['multipliers'].cast<double>();
-    weaknesses = json['weaknesses'].cast<String>();
+    multipliers = [];
+    for(var multi in json["multipliers"] ?? []){
+      multipliers?.add(multi);
+    }
+    weaknesses = [];
+
+    for(var weakness in json['weaknesses'] ?? []){
+      weaknesses?.add(weakness) ;
+    }
+
     if (json['next_evolution'] != null) {
       nextEvolution = <NextEvolution>[];
       json['next_evolution'].forEach((v) {
@@ -63,7 +71,7 @@ class Pokemon {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = id;
-    data['num'] = num;
+    data['num'] = number;
     data['name'] = name;
     data['img'] = img;
     data['type'] = type;
@@ -87,19 +95,19 @@ class Pokemon {
 }
 
 class NextEvolution {
-  String? num;
+  String? number;
   String? name;
 
-  NextEvolution({this.num, this.name});
+  NextEvolution({this.number, this.name});
 
   NextEvolution.fromJson(Map<String, dynamic> json) {
-    num = json['num'];
+    number = json['num'];
     name = json['name'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    data['num'] = num;
+    data['num'] = number;
     data['name'] = name;
     return data;
   }

@@ -1,49 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:poke_app/data/model/pokemon.dart';
 
+import 'components/character_details.dart';
 
 class CharacterDetailsScreen extends StatelessWidget {
-  const CharacterDetailsScreen({super.key});
+  const CharacterDetailsScreen({super.key, this.pokemon});
+
+  final Pokemon? pokemon;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Character Details"),
-        backgroundColor: Colors.cyan.shade500,
+        elevation: 0,
+        title: Text(pokemon!.name!, style: const TextStyle(color: Colors.white),),
+        backgroundColor: Colors.transparent ,
+        iconTheme: const IconThemeData(color: Colors.white),
+        centerTitle: true,
       ),
       backgroundColor: Colors.cyan.shade500,
-      body:Container(
+      body: Container(
         color: Colors.cyanAccent,
-        child:  Stack(
+        child: Stack(
           children: [
             Container(
               color: Colors.cyanAccent,
               child: Column(
                 children: [
-                  const SizedBox(height: 100), // Space for the image to overlap
+                  const SizedBox(height: 80),
                   Expanded(
-                    child: Container(
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30),
-                        ),
-                      ),
-                      padding: const EdgeInsets.all(20),
-                      child: const Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(height: 80), // Space for the image
-                          Text(
-                            "title",
-                            style: TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold,
-                            ),
+                    child: SingleChildScrollView(
+                      child: Container(
+
+                        width: double.infinity,
+                        decoration:  BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(
+                            20
                           ),
-                        ],
+                        ),
+                        padding: const EdgeInsets.symmetric(vertical: 40 , horizontal: 20),
+                        child:CharacterDetails(pokemon:  pokemon!),
                       ),
                     ),
                   ),
@@ -51,13 +48,13 @@ class CharacterDetailsScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 50,
+              top: 10,
               left: 0,
               right: 0,
               child: Hero(
-                tag: "image6",
-                child: Image.asset(
-                  "assets/images/character_image.png",
+                tag: pokemon!.id.toString(),
+                child: Image.network(
+                  pokemon?.img ?? "assets/images/character_image.png",
                   height: 150,
                   fit: BoxFit.contain,
                 ),
